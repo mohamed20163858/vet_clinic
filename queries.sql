@@ -56,3 +56,21 @@ SELECT MIN(weight_kg),MAX(weight_kg) FROM animals WHERE species='pokemon';
 -- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
 SELECT AVG(escape_attempts) FROM animals WHERE species='digimon' AND date_of_birth BETWEEN '1990-01-01' AND '2000-01-01';
 SELECT AVG(escape_attempts) FROM animals WHERE species='pokemon' AND date_of_birth BETWEEN '1990-01-01' AND '2000-01-01';
+
+-- What animals belong to Melody Pond?
+SELECT A.name AS Melody_Pond_Animals FROM animals A JOIN owners O ON A.owner_id = O.id WHERE O.full_name='Melody Pond';
+-- List of all animals that are pokemon
+SELECT A.name AS Pokemon_Animals FROM animals A JOIN species S ON A.species_id=S.id WHERE S.name='Pokemon';
+-- List all owners and their animals, remember to include those that don't own any animal.
+SELECT O.full_name, A.name AS owns FROM owners O LEFT JOIN animals A ON A.owner_id=O.id;
+-- How many animals are there per species?
+SELECT COUNT(A.name) AS number_of_animals_per_species, S.name FROM animals A LEFT JOIN species S ON A.species_id=S.id GROUP BY S.name;
+-- List all Digimon owned by Jennifer Orwell.
+SELECT A.name AS Jennifer_Orwell_Digimon_Animals FROM owners O JOIN Animals A ON A.owner_id=O.id WHERE O.full_name='Jennifer Orwell' AND A.species_id=(SELECT id FROM species WHERE name='Digimon');
+-- List all animals owned by Dean Winchester that haven't tried to escape.
+SELECT A.name As Dean_Winchester_Peacefull_Animals FROM owners O JOIN Animals A ON A.owner_id=O.id WHERE A.escape_attempts=0 AND O.full_name='Dean Winchester';
+-- Who owns the most animals?
+SELECT O.full_name, COUNT(A.name) FROM animals A RIGHT JOIN owners O ON A.owner_id=O.id GROUP BY O.full_name;
+-- so it Meldoy owns the Most animals;
+SELECT MAX(x.count) FROM(SELECT O.full_name, COUNT(A.name) FROM animals A RIGHT JOIN owners O ON A.owner_id=O.id GROUP BY O.full_name)x;
+SELECT x.full_name AS owns_most_animals FROM(SELECT O.full_name, COUNT(A.name) FROM animals A RIGHT JOIN owners O ON A.owner_id=O.id GROUP BY O.full_name)x WHERE x.count=3;
