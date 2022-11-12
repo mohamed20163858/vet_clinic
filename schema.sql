@@ -31,3 +31,27 @@ ALTER TABLE animals ADD owner_id INT;
 ALTER TABLE animals ADD FOREIGN KEY(owner_id) REFERENCES owners(id);
 
 
+CREATE TABLE vets (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR,
+    age INT,
+    date_of_graduation DATE,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE specializations (
+    species_id INT,
+    vet_id INT,
+    FOREIGN KEY(species_id) REFERENCES species(id),
+    FOREIGN KEY(vet_id) REFERENCES vets(id),
+    PRIMARY KEY(species_id, vet_id)
+);
+CREATE TABLE visits (
+    animal_id INT,
+    vet_id INT,
+    date_of_visit DATE,
+    FOREIGN KEY(animal_id) REFERENCES animals(id),
+    FOREIGN KEY(vet_id) REFERENCES vets(id),
+    PRIMARY KEY(animal_id, vet_id, date_of_visit )
+);
+
