@@ -54,4 +54,14 @@ CREATE TABLE visits (
     FOREIGN KEY(vet_id) REFERENCES vets(id),
     PRIMARY KEY(animal_id, vet_id, date_of_visit )
 );
+-- performance project
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+ALTER TABLE animals
+ADD COLUMN visit_count INT;
+
+CREATE INDEX vet_index ON visits(vet_id ASC);
+
+CREATE INDEX email_index ON owners(email ASC);
+
 
