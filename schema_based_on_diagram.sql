@@ -45,3 +45,12 @@ CREATE TABLE invoice_items (
     FOREIGN KEY (invoice_id) REFERENCES invoices (id),
     FOREIGN KEY (treatment_id) REFERENCES treatments (id)
 );
+CREATE INDEX patient_id_index ON medical_histories(patient_id);
+CREATE INDEX medical_histories_id_index ON medical_treatments(medical_histories_id);
+CREATE INDEX treatment_id_index ON medical_treatments(treatment_id);
+CREATE INDEX invoice_id_index ON invoice_items(invoice_id);
+CREATE INDEX medical_history_id_index ON invoices(medical_history_id);
+CREATE INDEX treatment_id_index_2 ON invoice_items(treatment_id);
+
+
+
