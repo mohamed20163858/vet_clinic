@@ -54,4 +54,5 @@ CREATE TABLE visits (
     FOREIGN KEY(vet_id) REFERENCES vets(id),
     PRIMARY KEY(animal_id, vet_id, date_of_visit )
 );
-
+-- performance project
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
