@@ -155,4 +155,9 @@ GROUP BY animal_specie;
 -- now it is clear that maisy is specialised in :- 
 SELECT name FROM species where id =2;
 
-explain analyze SELECT COUNT(*) FROM visits where animal_id = 4;
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animal_id = 4;
+EXPLAIN ANALYZE SELECT * FROM visits where vet_id = 2;
+EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
+
+-- solve first query problem
+ EXPLAIN ANALYZE SELECT visit_count FROM animals WHERE id=4;

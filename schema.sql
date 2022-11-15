@@ -56,3 +56,13 @@ CREATE TABLE visits (
 );
 -- performance project
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+ALTER TABLE animals
+ADD COLUMN visit_count INT;
+
+UPDATE animals
+SET visit_count = n_of_visits
+FROM (select COUNT(*) AS n_of_visits, animal_id FROM visits GROUP BY animal_id) AS x
+WHERE animals.id = x.animal_id;
+
+
