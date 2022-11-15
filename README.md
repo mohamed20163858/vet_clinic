@@ -23,6 +23,12 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Twitter: [@mohamed20163858](https://twitter.com/mohamed20163858)
 - LinkedIn: [mohamed-mohsen-685a4995](https://www.linkedin.com/in/mohamedmohsensaleh/)
 
+👤 Gustavo Porcilio.
+
+- GitHub: [@MarcoAurelioAntonio](https://github.com/MarcoAurelioAntonio)
+- Twitter: [@gustavoporcilio](https://twitter.com/gustavoporcilio)
+- LinkedIn: [Gustavo Porcilio](https://www.linkedin.com/in/gustavo-porcilio-4496a223a/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
