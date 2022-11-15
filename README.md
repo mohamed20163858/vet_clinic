@@ -5,6 +5,8 @@
 # Built With
 - PostgresSQL
 
+# ER diagram
+![image](https://user-images.githubusercontent.com/22921170/202017697-025ca05d-f364-41b5-8743-19f4c9e567a6.png)
 
 ## Getting Started
 
